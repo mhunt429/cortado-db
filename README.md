@@ -1,4 +1,4 @@
-## Cortado DB Library
+## Cortado DB Library  ![Build Status](https://github.com/mhunt429/cortado-db/actions/workflows/publish.yml/badge.svg)
 
 This project is a library containing the Slick data model for the Cortado database. It is automatically generated from the database schema and hosted on GitHub Packages.
 

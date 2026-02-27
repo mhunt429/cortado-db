@@ -40,7 +40,7 @@ jobs:
         uses: sbt/setup-sbt@v1
 
       - name: Run Sanity Check
-      - run: sbt test
+        run: sbt test
       
       - name: Configure Git
         run: |
