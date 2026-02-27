@@ -9,11 +9,14 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # sbt-release needs history for tagging
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -24,8 +27,12 @@ jobs:
       - name: Setup sbt
         uses: sbt/setup-sbt@v1
       
+      - name: Configure Git
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
 
-      - name: Publish to GitHub Packages
-        run: sbt publish
+      - name: Release and Publish
+        run: sbt "release with-defaults"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
