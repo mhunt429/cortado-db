@@ -11,7 +11,7 @@ To use this library in another sbt project, you need to configure your `build.sb
     ```scala
     resolvers += "GitHub Package Registry" at "https://maven.pkg.github.com/mhunt429/cortado-db"
 
-    libraryDependencies += "com.mhunt429" %% "cortado-db" % "0.1.0" // Replace with desired version
+    libraryDependencies += "com.mhunt429" %% "cortado-db" % "0.1.0" // Check GitHub for the latest version
     ```
 
 2.  **Provide GitHub Credentials**:
