@@ -1,12 +1,12 @@
-package 
+package com.mhunt429.cortado.db
 // AUTO-GENERATED Slick data model
 /** Stand-alone Slick data model for immediate use */
-object Tables extends Tables {
+object CortadoSchema extends CortadoSchema {
   val profile: slick.jdbc.JdbcProfile = slick.jdbc.PostgresProfile
 }
 
 /** Slick data model trait for extension, choice of backend or usage in the cake pattern. (Make sure to initialize this late.) */
-trait Tables {
+trait CortadoSchema {
   val profile: slick.jdbc.JdbcProfile
   import profile.api._
   import java.time.Instant

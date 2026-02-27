@@ -19,7 +19,7 @@ object TableGenerator {
         PostgresProfile.createModel(None, ignoreInvalidDefaults = false)
       val model = Await.result(db.run(modelAction), Duration.Inf)
       val generator = new CustomSlickGenerator(model)
-      generator.writeToFile("slick.jdbc.PostgresProfile", "src/main/scala", "")
+      generator.writeToFile("slick.jdbc.PostgresProfile", "src/main/scala", "com.mhunt429.cortado.db", "CortadoSchema", "CortadoSchema.scala")
     finally db.close()
 
 

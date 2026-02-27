@@ -5,10 +5,19 @@ lazy val slickVersion = "3.6.1"
 lazy val root = project
   .in(file("."))
   .settings(
+    organization := "com.mhunt429",
     name := "cortado-db",
     version := "0.1.0-SNAPSHOT",
 
     scalaVersion := scala3Version,
+
+    publishTo := Some("GitHub Package Registry" at "https://maven.pkg.github.com/mhunt429/cortado-db"),
+    credentials += Credentials(
+      "GitHub Package Registry",
+      "maven.pkg.github.com",
+      "mhunt429",
+      System.getenv("GITHUB_TOKEN")
+    ),
 
     libraryDependencies ++= Seq(
       "com.typesafe.slick" %% "slick" % slickVersion,
