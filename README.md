@@ -26,6 +26,24 @@ To use this library in another sbt project, you need to configure your `build.sb
     )
     ```
 
+### Running Tests
+
+Before checking in code, it is highly recommended to run the Flyway migration tests to ensure that your schema changes are valid and don't break existing migrations.
+
+To run the sanity check:
+
+```bash
+sbt test
+```
+
+This will:
+1.  Read the test configuration from `src/test/resources/application.conf`.
+2.  Clean the database (drop all objects).
+3.  Run all migrations from `src/main/resources/db/migration/`.
+4.  Verify that the schema is correctly applied.
+
+Note: Ensure you have a PostgreSQL instance running as specified in the test `application.conf` (default: `localhost:65432`).
+
 ### Generating the Schema
 
 To regenerate the `CortadoSchema.scala` file from a running database:

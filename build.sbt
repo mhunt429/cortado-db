@@ -43,7 +43,7 @@ lazy val root = project
       "org.flywaydb" % "flyway-core" % "12.0.3",
       "org.flywaydb" % "flyway-database-postgresql" % "12.0.3",
       "org.postgresql" % "postgresql" % pgVersion,
-
+      "org.scalatest" %% "scalatest" % "3.2.19" % Test
     )
 
   )
