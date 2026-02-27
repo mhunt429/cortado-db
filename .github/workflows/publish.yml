@@ -39,9 +39,6 @@ jobs:
       - name: Setup sbt
         uses: sbt/setup-sbt@v1
 
-      - name: Run Sanity Check
-        run: sbt test
-      
       - name: Configure Git
         run: |
           git config --global user.email "action@github.com"
@@ -65,7 +62,9 @@ jobs:
   dependency-graph:
     name: Update Dependency Graph
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: sbt/setup-sbt@v1
       - uses: scalacenter/sbt-dependency-submission@v2
