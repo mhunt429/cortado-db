@@ -33,6 +33,16 @@ jobs:
           git config --global user.name "GitHub Action"
 
       - name: Release and Publish
-        run: sbt "release with-defaults"
+        id: release
+        run: |
+          sbt "release with-defaults"
+          TAG_VERSION=$(git describe --tags --abbrev=0)
+          echo "tag_version=$TAG_VERSION" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Release
+        if: success()
+        run: gh release create ${{ steps.release.outputs.tag_version }} --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
