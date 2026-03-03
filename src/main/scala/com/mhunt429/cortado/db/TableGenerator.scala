@@ -1,3 +1,5 @@
+package com.mhunt429.cortado.db
+
 import slick.codegen.SourceCodeGenerator
 import slick.jdbc.PostgresProfile
 import slick.model.Model

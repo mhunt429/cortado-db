@@ -4,13 +4,13 @@ import org.flywaydb.core.Flyway
 import slick.jdbc.JdbcBackend.Database
 import slick.jdbc.PostgresProfile
 
-object MigrationRunner {
+object CortadoDb {
   val profile           = PostgresProfile
   lazy val db: Database = Database.forConfig("database.db")
 
-  private def flyway: Flyway = Flyway
+  private def flyway(cleanDisabled: Boolean = true): Flyway = Flyway
     .configure()
-    .cleanDisabled(false)
+    .cleanDisabled(cleanDisabled)
     .outOfOrder(true)
     .dataSource(
       db.source.asInstanceOf[slick.jdbc.hikaricp.HikariCPJdbcDataSource].ds
@@ -18,10 +18,10 @@ object MigrationRunner {
     .load()
 
   def runMigrations(): Unit =
-    flyway.migrate()
+    flyway().migrate()
 
   def reloadMigrations(): Unit = {
-    flyway.clean()
+    flyway(cleanDisabled = false).clean()
     runMigrations()
   }
 }

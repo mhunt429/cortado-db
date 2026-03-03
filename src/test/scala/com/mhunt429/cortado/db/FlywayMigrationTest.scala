@@ -15,7 +15,7 @@ class FlywayMigrationTest extends AnyFunSuite {
   test("Database should clean and migrate successfully using MigrationRunner") {
     // Perform Clean and Migration via MigrationRunner
     try {
-      MigrationRunner.reloadMigrations()
+      CortadoDb.reloadMigrations()
       info("Database reloaded (cleaned and migrated) successfully via MigrationRunner")
     } catch {
       case e: Exception => fail(s"Failed to reload database via MigrationRunner: ${e.getMessage}")
