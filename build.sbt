@@ -40,8 +40,8 @@ lazy val root = project
       "com.typesafe.slick" %% "slick" % slickVersion,
       "com.typesafe.slick" %% "slick-hikaricp" % slickVersion,
       "com.typesafe.slick" %% "slick-codegen" % slickVersion,
-      "org.flywaydb" % "flyway-core" % "12.0.3",
-      "org.flywaydb" % "flyway-database-postgresql" % "12.0.3",
+      "org.flywaydb" % "flyway-core" % "12.1.1",
+      "org.flywaydb" % "flyway-database-postgresql" % "12.1.1",
       "org.postgresql" % "postgresql" % pgVersion,
       "org.scalatest" %% "scalatest" % "3.2.19" % Test
     )
